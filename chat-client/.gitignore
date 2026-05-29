@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+build/
+
+# env
+.env
+.env.local
+.env.development.local
+.env.production.local
+
+# logs
+logs
+*.log
+
+# editor
+.vscode/
+.idea/
+
+# mac
+.DS_Store
+
+# coverage
+coverage/
+
+# vite
+vite.config.ts.timestamp-*
+
+# misc
+*.tsbuildinfo
