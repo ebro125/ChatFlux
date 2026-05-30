@@ -2,28 +2,30 @@ import { contacts } from '@/db/contacts';
 
 const ContactList = () => {
   return (
-    <div className="overflow-y-auto">
+    <div className="h-full overflow-y-auto">
       {contacts.map((contact) => (
         <div
           key={contact.id}
-          className="cursor-pointer border-b border-gray-800 p-4 transition hover:bg-gray-800"
-        >
+          className="cursor-pointer border-b-0 border-gray-800 p-4 transition hover:bg-slate-800 rounded-lg mx-2 my-1">
           <div className="flex items-center gap-3">
-            <img
-              src={contact.avatar}
-              alt={contact.name}
-              className="h-12 w-12 rounded-full"
-            />
+            <div className="relative">
+              <img
+                src={contact.avatar}
+                alt={contact.name}
+                className="h-12 w-12 rounded-full object-cover"
+              />
 
-            <div className="flex-1">
-              <div className="flex items-center justify-between">
-                <h2 className="font-semibold">{contact.name}</h2>
-
-                <span
-                  className={`h-3 w-3 rounded-full ${
-                    contact.online ? 'bg-green-500' : 'bg-gray-500'
+              <span
+                className={`absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-gray-900 ${contact.online ? 'bg-emerald-500' : 'bg-gray-500'
                   }`}
-                />
+              />
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center justify-between">
+                <h2 className="truncate font-semibold text-gray-100">
+                  {contact.name}
+                </h2>
               </div>
 
               <p className="truncate text-sm text-gray-400">
